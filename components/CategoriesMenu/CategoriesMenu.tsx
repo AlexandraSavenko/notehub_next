@@ -1,5 +1,4 @@
 'use client'
-import { Category } from "@/lib/api";
 import { useState } from "react";
 import css from './CategoriesMenu.module.css'
 import Link from "next/link";

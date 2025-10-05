@@ -4,12 +4,12 @@ import { getNotes } from "@/lib/api";
 
 
 const Notes = async () => {
-     const response = await getNotes();
+    //  const response = await getNotes();
    
-    console.log("notes", response)
+    // console.log("notes", response)
     return <section>
       <h1>Notes List</h1>
-      {response?.notes.length > 0 && <NoteList notes={response?.notes} />}
+      {/* {response?.notes.length > 0 && <NoteList notes={response?.notes} />} */}
     </section>;
 }
 

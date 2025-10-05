@@ -5,7 +5,7 @@ import CategoriesMenu from "../CategoriesMenu/CategoriesMenu";
 const Header = async () => {
 
   // const categories = await getCategries()
-  const categories = ['todo', 'work', 'personal', 'meeting', 'shopping']
+  const categories = ['Todo', 'Work', 'Personal', 'Meeting', 'Shopping']
   return (
     <header className={css.header}>
       <h2>NoteHub</h2>

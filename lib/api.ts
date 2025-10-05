@@ -35,9 +35,8 @@ const delay = (ms: number) => {new Promise((resolve) => setTimeout(resolve, ms))
 
 export const getNotes = async (category: string | undefined) => {
   await delay(2000)
-  console.log(category)
   const res = await api.get<NoteListResponse>("/notes", {
-    params: {tag: category?.toUpperCase()}
+    params: {tag: category}
   });
   console.log(res.data)
   return res.data;
