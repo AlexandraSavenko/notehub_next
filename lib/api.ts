@@ -15,6 +15,13 @@ export type NoteListResponse = {
   totalPages: number;
 };
 
+export type Category = {
+  id: string;
+  name: string;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+}
 // axios.defaults.baseURL = "https://next-docs-api.onrender.com";
 const api = axios.create({
     baseURL: "https://notehub-public.goit.study/api",
@@ -26,9 +33,13 @@ const api = axios.create({
 
 const delay = (ms: number) => {new Promise((resolve) => setTimeout(resolve, ms))}
 
-export const getNotes = async () => {
+export const getNotes = async (category: string | undefined) => {
   await delay(2000)
-  const res = await api.get<NoteListResponse>("/notes");
+  console.log(category)
+  const res = await api.get<NoteListResponse>("/notes", {
+    params: {tag: category?.toUpperCase()}
+  });
+  console.log(res.data)
   return res.data;
 };
 
@@ -36,3 +47,8 @@ export const getSingleNote = async (id: string) => {
   const res = await api.get(`/notes/${id}`);
   return res.data;
 }
+
+// export const getCategries = async () => {
+//   const res = await axios<Category[]>('/categories');
+//   return res.data;
+// }
